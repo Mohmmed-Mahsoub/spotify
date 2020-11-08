@@ -1,38 +1,220 @@
+/* Start Global */
+:root {
+  --main-color: #040404;
+  --primary-color: #282828;
+  --little-darker-color: #b3b3b3;
+  --mainSectionBG: #131313;
+}
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+.btn,
+.btn:hover {
+  background-color: var(--main-color);
+  color: var(--white-color);
+  border: 0;
+  outline: none;
+}
+.btn:focus {
+  box-shadow: none;
+}
+input {
+  outline: 0;
+  border: 0;
+}
+/* End Global*/
+
 .App {
-  text-align: center;
+  height: 100%;
+}
+aside {
+  width: 200px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #040404;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+aside .links {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+aside .links a {
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+aside .links a,
+aside .links i {
+  color: var(--little-darker-color);
+}
+aside .links a i::before {
+  margin-right: 1rem;
+}
+aside .links a.active {
+  background-color: var(--primary-color);
+}
+aside .links a.active,
+aside .links a.active i {
+  color: #fff;
+}
+main {
+  margin-left: 200px;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: var(--mainSectionBG);
+  /*padding: 1rem 2.5rem;*/
+}
+main .upperNav {
+  position: fixed;
+  background: rgba(9, 9, 9, 0.78);
+  color: #fff;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  left: 200px;
+  text-align: left;
+  padding: 1rem 2rem;
+}
+main .main-content {
+  padding: 75px 2rem;
+  text-align: left;
+  color: #fff;
+}
+main .main-content .category {
+  margin-bottom: 2rem;
+}
+main .main-content .sub-title {
+  color: var(--little-darker-color);
+  padding: 1rem 0;
+}
+main .main-content .cards {
+  display: flex;
+}
+main .main-content .card {
+  background: var(--primary-color);
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  margin-right: 1rem;
+}
+main .main-content .card .cardImg {
+  height: 160px;
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+}
+main .main-content .card .cardImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+main .main-content .card .card-body {
+  padding: 0;
+  padding-top: 1.25rem;
+}
+main .main-content .card .card-title {
+  color: #fff;
+}
+main .main-content .card .card-text {
+  color: var(--little-darker-color);
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--primary-color);
+  color: #fff;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.playlistPage {
+  background-color: rgb(214, 214, 214);
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.playlistPage .mainInner {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), #121212 40%);
+  width: 100%;
   display: flex;
   flex-direction: column;
+}
+.playlistPage .playlistPageInfo {
+  text-align: center;
+  padding: 1.5rem 0;
+  display: flex;
+}
+.playlistPage .playlistPageInfo .playlistPageImage {
+  width: 250px;
+  height: 250px;
+}
+.playlistPage .playlistPageInfo .playlistPageImage img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  -webkit-box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+}
+/*
+.playlistPage .playlistPageSongs {
+  height: 100%;
+}
+.playlistPage .playlistPageSongs .playlistButtons {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.playlistPage .playlistPageSongs .playlistButtons .playIcon {
+  opacity: 1;
+  position: relative;
+  margin-left: 0;
+  height: 56px;
+  width: 56px;
+  right: 0;
+  bottom: 0;
+}
+.playlistPage .playlistPageSongs .playlistButtons .playIcon svg {
+  height: 26px;
+  width: 26px;
 }
 
-.App-link {
-  color: #61dafb;
+.playlistPage .playlistPageSongs .playlistButtons .playIcon .icons .icon {
+  margin-left: 1.5rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.playlistPage .playlistPageSongs .playlistButtons .playIcon .icons .iconsHeart {
+  width: 28px;
+  height: 28px;
+}
+.playlistPage
+  .playlistPageSongs
+  .playlistButtons
+  .playIcon
+  .icons
+  .iconsHeart
+  svg {
+  fill: white;
+}
+*/
+.playlistPage .playlistPageInfo .playlistPageContent {
+  text-align: left;
+  padding: 1.5rem 2rem;
+}
+.playlistPage .playlistPageInfo .playlistPageContent h1 {
+  font-size: 7rem;
+  margin: 0;
+  line-height: 1;
+  font-family: circular-black;
+  word-spacing: -18px;
+  letter-spacing: -6px;
+}
+.playlistPage .playlistPageInfo .playlistPageContent .tagline {
+  font-size: 1.5rem;
+  opacity: 0.7;
+  margin-top: 1.5rem;
 }
